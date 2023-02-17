@@ -1,16 +1,19 @@
 :root {
   --react--black: #39393a;
   --react--yellow: #fed766;
+  --react--darkGrey:#3C474B;
+  --react--lightGrey:#9B9B93;
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-html,
-body {
+
+html, body {
   height: 100%;
-  background-color: #fed766;
+  background-color: var(--react--yellow)
 }
 
 body {
@@ -25,4 +28,14 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* GLOBAL CLASSES*/
+.text-center {
+  text-align: center !important;
+}
+
+.wrapper{
+  height: 100vh;
+  overflow: hidden;
 }
