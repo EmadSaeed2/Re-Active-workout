@@ -40,3 +40,14 @@ code {
   height: calc(100vh - 124px);
   overflow: hidden;
 }
+
+
+
+/* Calendar */
+.rbc-event {
+  background-color: var(--react--darkGrey) !important;
+}
+
+.rbc-today {
+  background-color: #fdf7e8 !important;
+}
