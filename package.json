@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "date-fns": "^2.29.3",
-    "react-big-calendar": "^1.6.8"
-  }
-}

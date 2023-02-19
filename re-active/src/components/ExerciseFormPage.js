@@ -61,7 +61,7 @@ function ExerciseFormPage() {
                         <input style={exFormPageStyles.exFormInput} placeholder="Load(kg)" id="ex-load" type="number" />
                         <input style={exFormPageStyles.exFormInput} placeholder="Rep Range" id="ex-rep-range" type="text" />
                         <input style={exFormPageStyles.exFormInput} placeholder="No. of Sets" id="ex-no-of-sets" type="number" />
-                        <input style={exFormPageStyles.exFormInput} placeholder="Duration" id="ex-duration" type="number" />
+                        <input style={exFormPageStyles.exFormInput} placeholder="Duration(hour)" id="ex-duration" type="number" />
                         <button style={exFormPageStyles.exFormButton} type="submit">Save To Calendar</button>
                     </form>
                 </div>

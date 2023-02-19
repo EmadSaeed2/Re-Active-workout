@@ -24,20 +24,29 @@ const historyStyles = {
 
 const events = [
     {
+        resourceId: 1,
         title: "Mario Crunch",
         start: new Date('2023-02-16 16:15:00'),
-        end: new Date('2023-02-16 16:45:00')
+        end: new Date('2023-02-16 16:45:00'),
     },
     {
+        resourceId: 2,
         title: "Handstand push-ups",
         start: new Date('2023-02-17 16:15:00'),
         end: new Date('2023-02-17 16:45:00')
     },
     {
+        resourceId: 3,
         title: "Abs Workout",
         start: new Date('2023-02-17 17:15:00'),
         end: new Date('2023-02-17 17:45:00')
     },
+]
+
+const resourceMap = [
+    { resourceId: 1, resourceTitle: 'Board room' },
+    { resourceId: 2, resourceTitle: 'Training room' },
+    { resourceId: 3, resourceTitle: 'Meeting room 1' }
 ]
 
 function History() {
@@ -52,6 +61,9 @@ function History() {
                 startAccessor="start"
                 endAccessor="end"
                 style={{ background: "#fff" }}
+                resources={resourceMap}
+                resourceIdAccessor="resourceId"
+                resourceTitleAccessor="resourceTitle"
             />
         </div>
     </>)
