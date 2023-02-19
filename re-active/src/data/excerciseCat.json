@@ -1,0 +1,34 @@
+[
+  {
+    "excerciseType": [
+      "Cardio",
+      "Olympic weightlifting",
+      "Plyometrics",
+      "Powerlifting",
+      "Strength",
+      "Stretching",
+      "Strongman"
+    ]
+  },
+  {
+    "muscleType": [
+      "Abdominals",
+      "Abductors",
+      "Adductors",
+      "Biceps",
+      "Calves",
+      "Chest",
+      "Forearms",
+      "Glutes",
+      "Hamstrings",
+      "Lats",
+      "Lower_back",
+      "Middle_back",
+      "Neck",
+      "Quadriceps",
+      "Traps",
+      "Triceps"
+    ]
+  },
+  { "excerciseDifficulty": ["Beginner", "Intermediate", "Expert"] }
+]

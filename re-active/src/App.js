@@ -7,17 +7,17 @@ function App() {
   return (
     <>
       <Header />
-      
-      <div className="wrapper"> 
-        <Home/>
+
+      <div className="wrapper">
+        <Home />
       </div>
-      
-      <Footer/>
+
+      <Footer />
     </>
 
-      // <Routes>
-      // <Route path="/" element={}/>
-      // </Routes>
+    // <Routes>
+    // <Route path="/" element={}/>
+    // </Routes>
   );
 }
 
