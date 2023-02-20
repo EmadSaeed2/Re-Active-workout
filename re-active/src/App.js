@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header homeStatus={homeStatus} setHomeStatus={setHomeStatus} />
 
       <div className="wrapper">
         <Home homeStatus={homeStatus} setHomeStatus={setHomeStatus} />

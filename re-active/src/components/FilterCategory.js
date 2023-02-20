@@ -8,9 +8,30 @@ const styles = {
     height: "100%",
     backgroundColor: "var(--react--lightGrey)",
     margin: "15px 0px",
+    justifyContent: "center",
+  },
+  form: {
+    height: "100%",
+    display: "flex",
     flexDirection: "column",
     justifyContent: "space-evenly",
-    alignItems: "center",
+    paddingBottom: "100px",
+    width: "40%",
+    fontSize: "1.5rem",
+  },
+  button: {
+    fontSize: "1.5rem",
+    fontWeight: "bold",
+    cursor: "pointer",
+    textDecoration: "none",
+    background: "var(--react--black)",
+    color: "var(--react--yellow)",
+    border: "var(--react--black) 2px solid",
+    padding: "2px 4px",
+    borderRadius: "5px",
+    boxShadow: "0 0 5px var(--react--yellow)",
+    width: "50%",
+    margin: "0px 25%",
   },
 };
 function FilterCategory(props) {
@@ -22,17 +43,20 @@ function FilterCategory(props) {
   };
   function onSubmit(e) {
     e.preventDefault();
-    console.log(choices);
     setHomeStatus("Results");
   }
   console.log(categories);
   if (homeStatus === "Results") {
-    console.log("gogo results component");
+    console.log(
+      "Then we activate the code below, once component is good to go :)"
+    );
+    //   return (<Results homeStatus={homeStatus} setHomeStatus={setHomeStatus} />
+    // );
   }
   return (
     <>
       <main style={styles.main}>
-        <form>
+        <form style={styles.form}>
           <Dropdown
             onChange={(e) => (choices.excerciseType = e.value)}
             style={styles.ddStyle}
@@ -54,7 +78,9 @@ function FilterCategory(props) {
             value="Difficulty"
             placeholder="Select an option"
           />
-          <button onClick={(e) => onSubmit(e)}>Submit</button>
+          <button style={styles.button} onClick={(e) => onSubmit(e)}>
+            Submit
+          </button>
         </form>
       </main>
     </>

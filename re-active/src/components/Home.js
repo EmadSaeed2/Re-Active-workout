@@ -1,5 +1,4 @@
 import FilterCategory from "./FilterCategory";
-import { useState } from "react";
 
 const homeStyle = {
   h1Style: {
