@@ -32,10 +32,12 @@ const homeStyle = {
   },
 };
 
-function Home() {
-  let [homeStatus, setHomeStatus] = useState("Home");
+function Home(props) {
+  let { homeStatus, setHomeStatus } = props;
   if (homeStatus === "FilterLoad") {
-    return <FilterCategory />;
+    return (
+      <FilterCategory homeStatus={homeStatus} setHomeStatus={setHomeStatus} />
+    );
   }
   return (
     <>
