@@ -9,7 +9,7 @@ const headerCSS = {
     justifyContent: "space-between",
     alignItems: "center",
     height: "100px",
-    padding: "0px 16px",
+    padding: "0px 28px",
   },
   logoContainer: {
     display: "flex",
