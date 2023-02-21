@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 import logo from "../images/ReactDumbellSiteColours.png";
 
 const headerCSS = {
-
   headerStyle: {
     backgroundColor: "var(--react--black)",
     color: "var(--react--yellow)",
@@ -14,7 +13,7 @@ const headerCSS = {
   },
   logoContainer: {
     display: "flex",
-    alignItems: "center"
+    alignItems: "center",
   },
   navStyle: {
     display: "flex",
@@ -26,10 +25,11 @@ const headerCSS = {
   },
   logoStyle: {
     maxWidth: "90px",
-    marginRight: "10px"
-  }
+    marginRight: "10px",
+  },
 };
-function Header() {
+function Header(props) {
+  let { homeStatus, setHomeStatus } = props;
   return (
     <header style={headerCSS.headerStyle}>
       <div style={headerCSS.logoContainer}>
@@ -37,13 +37,25 @@ function Header() {
         <h1>ReActive Workout Planner</h1>
       </div>
       <nav style={headerCSS.navStyle}>
-        <NavLink to="/" style={headerCSS.linkStyle}>
+        <NavLink
+          to="/"
+          style={headerCSS.linkStyle}
+          onClick={() => setHomeStatus("Home")}
+        >
           Home
         </NavLink>
-        <NavLink to="/history" style={headerCSS.linkStyle}>
+        <NavLink
+          to="/history"
+          style={headerCSS.linkStyle}
+          onClick={() => setHomeStatus("Home")}
+        >
           History
         </NavLink>
-        <NavLink to="/contact" style={headerCSS.linkStyle}>
+        <NavLink
+          to="/contact"
+          style={headerCSS.linkStyle}
+          onClick={() => setHomeStatus("Home")}
+        >
           Contact
         </NavLink>
       </nav>
