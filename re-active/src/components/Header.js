@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import logo from "../images/ReactDumbellSiteColours.png";
 
 const headerCSS = {
-  
+
   headerStyle: {
     backgroundColor: "var(--react--black)",
     color: "var(--react--yellow)",
@@ -10,11 +10,11 @@ const headerCSS = {
     justifyContent: "space-between",
     alignItems: "center",
     height: "100px",
-    padding: "0px 16px",
+    padding: "0px 28px",
   },
-  logoContainer:{
-    display:"flex",
-    alignItems:"center"
+  logoContainer: {
+    display: "flex",
+    alignItems: "center"
   },
   navStyle: {
     display: "flex",
@@ -25,16 +25,16 @@ const headerCSS = {
     color: "var(--react--yellow)",
   },
   logoStyle: {
-    maxWidth:"90px",
-    marginRight:"10px"
+    maxWidth: "90px",
+    marginRight: "10px"
   }
 };
 function Header() {
   return (
     <header style={headerCSS.headerStyle}>
       <div style={headerCSS.logoContainer}>
-      <img src={logo} alt="Re-Active Logo" style={headerCSS.logoStyle} />
-      <h1>ReActive Workout Planner</h1>
+        <img src={logo} alt="Re-Active Logo" style={headerCSS.logoStyle} />
+        <h1>ReActive Workout Planner</h1>
       </div>
       <nav style={headerCSS.navStyle}>
         <NavLink to="/" style={headerCSS.linkStyle}>
