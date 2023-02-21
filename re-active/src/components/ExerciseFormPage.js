@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import FormPageCard from './FormPageCard';
 
 const exFormPageStyles = {
     yellowStrip: {
@@ -14,11 +15,14 @@ const exFormPageStyles = {
     exFormPageCardContainer: {
         height: "100%",
         width: "100%",
-
+        display: "flex",
+        justifyContent: "center",
+        paddingTop: "70px"
     },
+
     exForm: {
         height: "90%",
-        padding: "50px",
+        width: "85%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between"
@@ -27,9 +31,6 @@ const exFormPageStyles = {
         padding: "16px 12px",
         border: "1px solid #ccc",
         borderRadius: "4px",
-    },
-    inputDate: {
-
     },
     exFormButton: {
         border: "none",
@@ -45,7 +46,6 @@ const exFormPageStyles = {
 
 }
 
-
 function ExerciseFormPage() {
     const [dateInputType, setDateInputType] = useState('text');
     const [timeInputType, setTimeInputType] = useState('text');
@@ -53,9 +53,12 @@ function ExerciseFormPage() {
         <>
             <div style={exFormPageStyles.yellowStrip}></div>
             <div className="exFormPageContainer" style={exFormPageStyles.exFormPageContainer}>
-                <div style={exFormPageStyles.exFormPageCardContainer}>a</div>
-                <div style={exFormPageStyles.exFormPageCardContainer}>
-                    <form style={exFormPageStyles.exForm}>
+                <div className='exFormPageCardContainer' style={exFormPageStyles.exFormPageCardContainer}>
+                    <FormPageCard />
+                </div>
+                <div className='exFormPageCardContainer' style={exFormPageStyles.exFormPageCardContainer}>
+                    <form className='exForm' style={exFormPageStyles.exForm}>
+                        <h1 style={{ color: "var(--react--yellow", textAlign: "center" }}>Plan Your Workout</h1>
                         <input style={exFormPageStyles.exFormInput} id="ex-date" type={dateInputType} placeholder="Date"
                             onFocus={() => { setDateInputType('date') }} onBlur={() => { setDateInputType('text') }}
                             onChange={() => { }} />

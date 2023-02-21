@@ -59,3 +59,31 @@ input[type="date"]::-webkit-datetime-edit-day-field,
 input[type="date"]::-webkit-datetime-edit-year-field {
   color: #777;
 }
+
+@media (orientation: portrait) {
+  .wrapper {
+    height: auto;
+  }
+
+  /* exFormPage */
+  .exFormPageContainer {
+    flex-direction: column !important;
+  }
+
+  .exForm,
+  .formPageCard {
+    height: 100% !important;
+    /* background-color: red !important; */
+  }
+
+  h1,
+  .exForm input,
+  .exForm button {
+    margin-bottom: 20px;
+  }
+
+  .imageWrapper {
+    height: 300px !important;
+  }
+
+}

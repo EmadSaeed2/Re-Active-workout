@@ -43,7 +43,6 @@ const events = [
         start: new Date('2023-02-17 16:15:00'),
         end: new Date('2023-02-17 16:45:00'),
         title: {
-            type: "strength",
             muscle: "biceps",
             equipment: "barbell",
             difficulty: "beginner",
