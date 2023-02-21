@@ -24,7 +24,7 @@ const exFormPageStyles = {
         justifyContent: "space-between"
     },
     exFormInput: {
-        padding: "15px 12px",
+        padding: "16px 12px",
         border: "1px solid #ccc",
         borderRadius: "4px",
     },
@@ -47,7 +47,8 @@ const exFormPageStyles = {
 
 
 function ExerciseFormPage() {
-    const [inputType, setInputType] = useState('date');
+    const [dateInputType, setDateInputType] = useState('text');
+    const [timeInputType, setTimeInputType] = useState('text');
     return (
         <>
             <div style={exFormPageStyles.yellowStrip}></div>
@@ -55,13 +56,16 @@ function ExerciseFormPage() {
                 <div style={exFormPageStyles.exFormPageCardContainer}>a</div>
                 <div style={exFormPageStyles.exFormPageCardContainer}>
                     <form style={exFormPageStyles.exForm}>
-                        <input style={exFormPageStyles.exFormInput} id="ex-date" type={inputType} placeholder="Date"
-                            // onFocus={() => { setInputType('date') }} onBlur={() => { setInputType('text') }}
+                        <input style={exFormPageStyles.exFormInput} id="ex-date" type={dateInputType} placeholder="Date"
+                            onFocus={() => { setDateInputType('date') }} onBlur={() => { setDateInputType('text') }}
+                            onChange={() => { }} />
+                        <input style={exFormPageStyles.exFormInput} id="ex-time" type={timeInputType} placeholder="Start at"
+                            onFocus={() => { setTimeInputType('time') }} onBlur={() => { setTimeInputType('text') }}
                             onChange={() => { }} />
                         <input style={exFormPageStyles.exFormInput} placeholder="Load(kg)" id="ex-load" type="number" />
                         <input style={exFormPageStyles.exFormInput} placeholder="Rep Range" id="ex-rep-range" type="text" />
                         <input style={exFormPageStyles.exFormInput} placeholder="No. of Sets" id="ex-no-of-sets" type="number" />
-                        <input style={exFormPageStyles.exFormInput} placeholder="Duration(hour)" id="ex-duration" type="number" />
+                        <input style={exFormPageStyles.exFormInput} placeholder="Duration (minutes)" id="ex-duration" type="number" />
                         <button style={exFormPageStyles.exFormButton} type="submit">Save To Calendar</button>
                     </form>
                 </div>
