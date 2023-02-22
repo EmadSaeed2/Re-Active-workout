@@ -30,7 +30,6 @@ const headerCSS = {
   },
 };
 function Header(props) {
-  console.log(props)
   let { homeStatus, setHomeStatus, navUnderline, setNavUnderline } = props;
   return (
     <header style={headerCSS.headerStyle}>

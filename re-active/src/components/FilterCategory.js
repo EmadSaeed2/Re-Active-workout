@@ -33,7 +33,6 @@ const styles = {
   
 };
 function FilterCategory(props) {
-  console.log(props);
   let { homeStatus, setHomeStatus, filterCat, setFilterCat } = props;
   let choices = {
     excerciseType: "",

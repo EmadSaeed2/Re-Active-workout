@@ -30,7 +30,6 @@ const resultsCSS = {
 function Results(props) {
   let [results, setResults] = useState(false);
   let userSelection = props.filterCat;
-  console.log(userSelection);
   function capitalise(string) {
     let firstLetter = string.charAt(0).toUpperCase();
     return firstLetter + string.slice(1);
