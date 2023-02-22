@@ -1,0 +1,90 @@
+:root {
+  --react--black: #39393a;
+  --react--yellow: #fed766;
+  --react--darkGrey: #3C474B;
+  --react--lightGrey: #9B9B93;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+html,
+body {
+  height: 100vh;
+  background-color: var(--react--yellow);
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* GLOBAL CLASSES*/
+.text-center {
+  text-align: center !important;
+}
+
+.wrapper {
+  height: calc(100vh - 124px);
+  overflow: hidden;
+}
+
+
+
+/* Calendar */
+.rbc-event {
+  background-color: var(--react--darkGrey) !important;
+}
+
+.rbc-today {
+  background-color: #fdf7e8 !important;
+}
+
+/* placeholder text style */
+input[type="date"]::-webkit-datetime-edit-text,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field {
+  color: #777;
+}
+
+@media (orientation: portrait) {
+  .wrapper {
+    height: auto;
+  }
+
+  /* exFormPage */
+  .exFormPageContainer {
+    flex-direction: column !important;
+  }
+
+  .exForm,
+  .formPageCard {
+    height: 100% !important;
+    /* background-color: red !important; */
+  }
+
+  h1,
+  .exForm input,
+  .exForm button {
+    margin-bottom: 20px;
+  }
+
+  .imageWrapper {
+    height: 300px !important;
+  }
+
+}
