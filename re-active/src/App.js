@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import History from "./components/History";
 import ExerciseFormPage from "./components/ExerciseFormPage";
 import userSelectionData from "./components/userSelectionData"
+import CalendarPopUp from "./components/CalendarPopUp";
 
 function App() {
   const [userSelection, setUserSelection] = useState(userSelectionData);
@@ -15,6 +16,7 @@ function App() {
       <div className="wrapper">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/pop" element={<CalendarPopUp userSelection={userSelection} />} />
           <Route path="/history" element={<History userSelection={userSelection} setUserSelection={setUserSelection} />} />
           <Route path="/exercise-form" element={<ExerciseFormPage userSelection={userSelection} setUserSelection={setUserSelection} />} />
         </Routes>

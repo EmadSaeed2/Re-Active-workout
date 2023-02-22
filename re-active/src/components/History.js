@@ -35,7 +35,7 @@ function History() {
         if (e.target.className === 'rbc-event-content') {
             const details = e.target.getAttribute('title')
 
-            console.log(JSON.parse(details).age)
+            console.log(typeof (details))
         }
     };
 
