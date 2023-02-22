@@ -19,6 +19,7 @@ const homeStyle = {
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "var(--react--darkGrey)",
+    cursor: "pointer",
   },
   filterStyle: {
     display: "flex",
@@ -26,6 +27,7 @@ const homeStyle = {
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "var(--react--lightGrey)",
+    cursor: "pointer",
   },
   titleStyle: {
     justifyContent: "center",

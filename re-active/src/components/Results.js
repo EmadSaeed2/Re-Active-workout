@@ -26,8 +26,10 @@ function Results(props) {
     let firstLetter = string.charAt(0).toUpperCase();
     return firstLetter + string.slice(1);
   }
+  // fetch api here using user selection and .then the main
   return (
     <main style={resultsCSS.main}>
+      {/* below testData to be replaced by fetch response from api  */}
       {testData.map((data, index) => {
         console.log(data);
         return (
@@ -51,36 +53,6 @@ function Results(props) {
           </div>
         );
       })}
-      {/* <div className="resultCard">
-        <h3>Excercise Name</h3>
-      </div>
-      <div className="resultCard">
-        <h3>Excercise Name</h3>
-      </div>
-      <div className="resultCard">
-        <h3>Excercise Name</h3>
-      </div>
-      <div className="resultCard">
-        <h3>Excercise Name</h3>
-      </div>
-      <div className="resultCard">
-        <h3>Excercise Name</h3>
-      </div>
-      <div className="resultCard">
-        <h3>Excercise Name</h3>
-      </div>
-      <div className="resultCard">
-        <h3>Excercise Name</h3>
-      </div>
-      <div className="resultCard">
-        <h3>Excercise Name</h3>
-      </div>
-      <div className="resultCard">
-        <h3>Excercise Name</h3>
-      </div>
-      <div className="resultCard">
-        <h3>Excercise Name</h3>
-      </div> */}
     </main>
   );
 }
