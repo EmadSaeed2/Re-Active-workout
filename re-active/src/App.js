@@ -5,21 +5,42 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import History from "./components/History";
 import ExerciseFormPage from "./components/ExerciseFormPage";
-import userSelectionData from "./components/userSelectionData"
+import userSelectionData from "./components/userSelectionData";
 import CalendarPopUp from "./components/CalendarPopUp";
 
 function App() {
   let [homeStatus, setHomeStatus] = useState("Home");
   const [userSelection, setUserSelection] = useState(userSelectionData);
-  
+
   return (
     <>
       <Header homeStatus={homeStatus} setHomeStatus={setHomeStatus} />
       <div className="wrapper">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/history" element={<History userSelection={userSelection} setUserSelection={setUserSelection} />} />
-          <Route path="/exercise-form" element={<ExerciseFormPage userSelection={userSelection} setUserSelection={setUserSelection} />} />
+          <Route
+            path="/"
+            element={
+              <Home homeStatus={homeStatus} setHomeStatus={setHomeStatus} />
+            }
+          />
+          <Route
+            path="/history"
+            element={
+              <History
+                userSelection={userSelection}
+                setUserSelection={setUserSelection}
+              />
+            }
+          />
+          <Route
+            path="/exercise-form"
+            element={
+              <ExerciseFormPage
+                userSelection={userSelection}
+                setUserSelection={setUserSelection}
+              />
+            }
+          />
         </Routes>
       </div>
       <Footer />

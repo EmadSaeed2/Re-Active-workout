@@ -1,4 +1,6 @@
+import { useState } from "react";
 import FilterCategory from "./FilterCategory";
+import Results from "./Results";
 
 const homeStyle = {
   h1Style: {
@@ -17,6 +19,7 @@ const homeStyle = {
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "var(--react--darkGrey)",
+    cursor: "pointer",
   },
   filterStyle: {
     display: "flex",
@@ -24,6 +27,7 @@ const homeStyle = {
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "var(--react--lightGrey)",
+    cursor: "pointer",
   },
   titleStyle: {
     justifyContent: "center",
@@ -32,10 +36,25 @@ const homeStyle = {
 };
 
 function Home(props) {
+  let [filterCat, setFilterCat] = useState(false);
   let { homeStatus, setHomeStatus } = props;
   if (homeStatus === "FilterLoad") {
     return (
-      <FilterCategory homeStatus={homeStatus} setHomeStatus={setHomeStatus} />
+      <FilterCategory
+        homeStatus={homeStatus}
+        setHomeStatus={setHomeStatus}
+        filterCat={filterCat}
+        setFilterCat={setFilterCat}
+      />
+    );
+  } else if (homeStatus === "Results") {
+    return (
+      <Results
+        homeStatus={homeStatus}
+        setHomeStatus={setHomeStatus}
+        filterCat={filterCat}
+        setFilterCat={setFilterCat}
+      />
     );
   }
   return (
