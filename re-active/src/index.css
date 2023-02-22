@@ -9,12 +9,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 html,
 body {
   height: 100vh;
-  background-color: var(--react--yellow)
+  background-color: var(--react--yellow);
 }
 
 body {
