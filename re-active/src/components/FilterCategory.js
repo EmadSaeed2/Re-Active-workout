@@ -1,6 +1,7 @@
 import categories from "../data/excerciseCat.json";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
+import Results from "./Results";
 
 const styles = {
   main: {
@@ -19,23 +20,10 @@ const styles = {
     width: "40%",
     fontSize: "1.5rem",
   },
-  button: {
-    fontSize: "1.5rem",
-    fontWeight: "bold",
-    cursor: "pointer",
-    textDecoration: "none",
-    background: "var(--react--black)",
-    color: "var(--react--yellow)",
-    border: "var(--react--black) 2px solid",
-    padding: "2px 4px",
-    borderRadius: "5px",
-    boxShadow: "0 0 5px var(--react--yellow)",
-    width: "50%",
-    margin: "0px 25%",
-  },
 };
 function FilterCategory(props) {
-  let { homeStatus, setHomeStatus } = props;
+  console.log(props);
+  let { homeStatus, setHomeStatus, filterCat, setFilterCat } = props;
   let choices = {
     excerciseType: "",
     muscleType: "",
@@ -44,14 +32,7 @@ function FilterCategory(props) {
   function onSubmit(e) {
     e.preventDefault();
     setHomeStatus("Results");
-  }
-  console.log(categories);
-  if (homeStatus === "Results") {
-    console.log(
-      "Then we activate the code below, once component is good to go :)"
-    );
-    //   return (<Results homeStatus={homeStatus} setHomeStatus={setHomeStatus} />
-    // );
+    setFilterCat(choices);
   }
   return (
     <>
@@ -78,7 +59,7 @@ function FilterCategory(props) {
             value="Difficulty"
             placeholder="Select an option"
           />
-          <button style={styles.button} onClick={(e) => onSubmit(e)}>
+          <button className="buttonReact" onClick={(e) => onSubmit(e)}>
             Submit
           </button>
         </form>
