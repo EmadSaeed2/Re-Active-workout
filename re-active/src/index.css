@@ -14,7 +14,7 @@
 
 html,
 body {
-  height: 100v;
+  height: 100vh;
   background-color: var(--react--yellow);
 }
 
