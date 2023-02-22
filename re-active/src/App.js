@@ -16,7 +16,6 @@ function App() {
       <div className="wrapper">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/pop" element={<CalendarPopUp userSelection={userSelection} />} />
           <Route path="/history" element={<History userSelection={userSelection} setUserSelection={setUserSelection} />} />
           <Route path="/exercise-form" element={<ExerciseFormPage userSelection={userSelection} setUserSelection={setUserSelection} />} />
         </Routes>

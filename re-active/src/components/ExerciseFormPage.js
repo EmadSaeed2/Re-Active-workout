@@ -69,7 +69,7 @@ function ExerciseFormPage(props) {
         let endTime = new Date(startTime)
         endTime = format(endTime.setMinutes(endTime.getMinutes() + parseInt(selectedDuration)), 'yyyy-MM-dd HH:mm:ss')
         const titleObj = { ...props.userSelection.title, load: selectedLoad, repRange: selectedRepRange, noOfSets: selectedNoOfSets }
-        const exercise = { ...props.userSelection, start: startTime, end: endTime, title: titleObj }
+        const exercise = { ...props.userSelection, start: startTime, end: endTime, title: JSON.stringify(titleObj) }
         console.log(exercise)
 
         // submit to local storage
