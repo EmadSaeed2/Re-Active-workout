@@ -32,20 +32,6 @@ const styles = {
         height: "60px",
         fontSize: "1rem"
     },
-    button: {
-        fontSize: "1.5rem",
-        fontWeight: "bold",
-        cursor: "pointer",
-        textDecoration: "none",
-        background: "var(--react--black)",
-        color: "var(--react--yellow)",
-        border: "var(--react--black) 2px solid",
-        padding: "2px 4px",
-        borderRadius: "5px",
-        boxShadow: "0 0 5px var(--react--yellow)",
-        width: "50%",
-        margin: "0px 25%",
-    },
 };
 
 function ExerciseSearch(props) {
@@ -74,7 +60,7 @@ function ExerciseSearch(props) {
                     style={styles.formInput}
                     onChange={(event) => setExerciseName(event.target.value)}
                     />
-                    <button style={styles.button} onClick={(event) => onSubmit(event)}>Search</button>
+                    <button className="buttonReact" onClick={(event) => onSubmit(event)}>Search</button>
                 </form>
             </div>
         </main>
