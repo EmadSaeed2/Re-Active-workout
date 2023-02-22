@@ -1,17 +1,21 @@
 import { useState } from "react";
 import FilterCategory from "./FilterCategory";
+import ExerciseSearch from "./ExerciseSearch";
 import Results from "./Results";
 
 const homeStyle = {
   h1Style: {
     display: "flex",
     justifyContent: "center",
-    padding: "10px",
+    padding: "0px 10px 0px 10px",
+    marginBottom: "24px"
+
   },
   main: {
     borderTop: "2px solid var(--react--black)",
     display: "flex",
     height: "100%",
+    marginBottom: "24px"
   },
   excerciseStyle: {
     display: "flex",
@@ -38,31 +42,42 @@ const homeStyle = {
 function Home(props) {
   let [filterCat, setFilterCat] = useState(false);
   let { homeStatus, setHomeStatus } = props;
-  if (homeStatus === "FilterLoad") {
-    return (
-      <FilterCategory
+  switch(homeStatus) {
+    case "loadSearch":
+      return (
+        <ExerciseSearch homeStatus={homeStatus} setHomeStatus={setHomeStatus} />
+      );
+    case "FilterLoad":
+      return (
+        <FilterCategory
         homeStatus={homeStatus}
         setHomeStatus={setHomeStatus}
         filterCat={filterCat}
         setFilterCat={setFilterCat}
       />
-    );
-  } else if (homeStatus === "Results") {
-    return (
-      <Results
+      );
+     case "Results":
+      return(
+        <Results
         homeStatus={homeStatus}
         setHomeStatus={setHomeStatus}
         filterCat={filterCat}
         setFilterCat={setFilterCat}
       />
-    );
+      );
+
   }
+
   return (
     <>
       <h1 style={homeStyle.h1Style}>Let's Go!</h1>
       <main style={homeStyle.main}>
-        <section style={homeStyle.excerciseStyle}>
+        <section 
+          style={homeStyle.excerciseStyle}
+          onClick={() => setHomeStatus("loadSearch")}
+        >
           <h2 style={homeStyle.titleStyle}>Excercise Search</h2>
+
         </section>
         <section
           style={homeStyle.filterStyle}

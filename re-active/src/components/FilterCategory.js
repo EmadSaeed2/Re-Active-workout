@@ -8,7 +8,7 @@ const styles = {
     display: "flex",
     height: "100%",
     backgroundColor: "var(--react--lightGrey)",
-    margin: "15px 0px",
+    marginBottom: "24px",
     justifyContent: "center",
   },
   form: {
