@@ -9,12 +9,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 html,
 body {
   height: 100vh;
-  background-color: var(--react--yellow)
+  background-color: var(--react--yellow);
 }
 
 body {
@@ -58,4 +59,32 @@ input[type="date"]::-webkit-datetime-edit-month-field,
 input[type="date"]::-webkit-datetime-edit-day-field,
 input[type="date"]::-webkit-datetime-edit-year-field {
   color: #777;
+}
+
+@media (orientation: portrait) {
+  .wrapper {
+    height: auto;
+  }
+
+  /* exFormPage */
+  .exFormPageContainer {
+    flex-direction: column !important;
+  }
+
+  .exForm,
+  .formPageCard {
+    height: 100% !important;
+    /* background-color: red !important; */
+  }
+
+  h1,
+  .exForm input,
+  .exForm button {
+    margin-bottom: 20px;
+  }
+
+  .imageWrapper {
+    height: 300px !important;
+  }
+
 }
