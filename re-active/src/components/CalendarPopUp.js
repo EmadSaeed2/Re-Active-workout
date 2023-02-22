@@ -81,7 +81,6 @@ function CalendarPopUp(props) {
                     </ul>
                 </div>
             </div>
-
         </div>
     )
 }
