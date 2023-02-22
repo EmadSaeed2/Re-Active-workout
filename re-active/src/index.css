@@ -14,7 +14,7 @@
 
 html,
 body {
-  height: 100vh;
+  height: 100v;
   background-color: var(--react--yellow);
 }
 
@@ -40,6 +40,9 @@ code {
 .wrapper {
   height: calc(100vh - 124px);
   overflow: hidden;
+}
+a.active{
+  text-decoration: underline var(--react--yellow) !important;
 }
 .buttonReact {
   font-size: 1.5rem;

@@ -9,18 +9,19 @@ import userSelectionData from "./components/userSelectionData";
 import CalendarPopUp from "./components/CalendarPopUp";
 
 function App() {
+  let [navUnderline, setNavUnderline]=useState("home");
   let [homeStatus, setHomeStatus] = useState("Home");
   const [userSelection, setUserSelection] = useState(userSelectionData);
 
   return (
     <>
-      <Header homeStatus={homeStatus} setHomeStatus={setHomeStatus} />
+      <Header homeStatus={homeStatus} setHomeStatus={setHomeStatus} navUnderline={navUnderline} setNavUnderline={setNavUnderline} />
       <div className="wrapper">
         <Routes>
           <Route
             path="/"
             element={
-              <Home homeStatus={homeStatus} setHomeStatus={setHomeStatus} />
+              <Home homeStatus={homeStatus} setHomeStatus={setHomeStatus}  />
             }
           />
           <Route

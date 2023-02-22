@@ -30,7 +30,8 @@ const headerCSS = {
   },
 };
 function Header(props) {
-  let { homeStatus, setHomeStatus } = props;
+  console.log(props)
+  let { homeStatus, setHomeStatus, navUnderline, setNavUnderline } = props;
   return (
     <header style={headerCSS.headerStyle}>
       <div style={headerCSS.logoContainer}>
@@ -39,13 +40,18 @@ function Header(props) {
       </div>
       <nav style={headerCSS.navStyle}>
         <NavLink
+        className="nav"
+        isactive={navUnderline==="home" ? "home" : ""}
           to="/"
           style={headerCSS.linkStyle}
-          onClick={() => setHomeStatus("Home")}
+          onClick={() => setHomeStatus("Home")
+        }
         >
           Home
         </NavLink>
         <NavLink
+        className="nav"
+        isactive={navUnderline==="history" ? "history" : ""}
           to="/history"
           style={headerCSS.linkStyle}
           onClick={() => setHomeStatus("Home")}
@@ -53,6 +59,8 @@ function Header(props) {
           History
         </NavLink>
         <NavLink
+        className="nav"
+        isactive={navUnderline==="contact" ? "contact" : ""}
           to="/contact"
           style={headerCSS.linkStyle}
           onClick={() => setHomeStatus("Home")}
