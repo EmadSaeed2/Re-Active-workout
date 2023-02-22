@@ -9,10 +9,12 @@ import userSelectionData from "./components/userSelectionData"
 import CalendarPopUp from "./components/CalendarPopUp";
 
 function App() {
+  let [homeStatus, setHomeStatus] = useState("Home");
   const [userSelection, setUserSelection] = useState(userSelectionData);
+  
   return (
     <>
-      <Header />
+      <Header homeStatus={homeStatus} setHomeStatus={setHomeStatus} />
       <div className="wrapper">
         <Routes>
           <Route path="/" element={<Home />} />
