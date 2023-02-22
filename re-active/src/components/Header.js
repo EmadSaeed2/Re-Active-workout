@@ -10,6 +10,7 @@ const headerCSS = {
     alignItems: "center",
     height: "100px",
     padding: "0px 28px",
+    marginBottom: "24px",
   },
   logoContainer: {
     display: "flex",
