@@ -63,20 +63,23 @@ function ExerciseFormPage(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        // Date functionality
         let startTime = `${selectedDate} ${selectedTime}:00`
         startTime = format(new Date(startTime), 'yyyy-MM-dd HH:mm:ss')
         let endTime = new Date(startTime)
-
-        console.log(typeof (selectedDuration))
         endTime = format(endTime.setMinutes(endTime.getMinutes() + parseInt(selectedDuration)), 'yyyy-MM-dd HH:mm:ss')
-
-        console.log(startTime)
-        console.log(endTime)
-
         const titleObj = { ...props.userSelection.title, load: selectedLoad, repRange: selectedRepRange, noOfSets: selectedNoOfSets }
-
         const exercise = { ...props.userSelection, start: startTime, end: endTime, title: titleObj }
         console.log(exercise)
+
+        // submit to local storage
+        let exercises = JSON.parse(localStorage.getItem("exercises"));
+
+        if (!exercises) {
+            exercises = [];
+        }
+        exercises.push({ ...exercise });
+        localStorage.setItem("exercises", JSON.stringify(exercises));
     }
 
     return (
