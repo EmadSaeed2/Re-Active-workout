@@ -38,8 +38,8 @@ function Header() {
             </div>
             <nav style={headerCSS.navStyle}>
                 <NavLink to="/" style={headerCSS.linkStyle}>Home</NavLink>
-                <NavLink to="/history" style={headerCSS.linkStyle}>History</NavLink>
-                <NavLink to="/contact" style={headerCSS.linkStyle}>Contact</NavLink>
+                <NavLink to="/history" style={headerCSS.linkStyle}>Workout History</NavLink>
+                {/* <NavLink to="/contact" style={headerCSS.linkStyle}>Contact</NavLink> */}
             </nav>
         </header>
     )

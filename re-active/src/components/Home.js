@@ -41,13 +41,13 @@ function Home() {
             <h1 style={homeStyle.h1Style}>Let's Go!</h1>
             <main style={homeStyle.main}>
                 <section style={homeStyle.excerciseStyle} >
-                    <NavLink to="/exercise-search">
-                        <h2 style={homeStyle.titleStyle}>Exercise Search</h2>
+                    <NavLink to="/filter-category">
+                        <h2 style={homeStyle.titleStyle}>Find Exercise</h2>
                     </NavLink>
                 </section>
                 <section style={homeStyle.filterStyle} >
-                    <NavLink to="/filter-category">
-                        <h2 style={homeStyle.titleStyle}>Filter by category</h2>
+                    <NavLink to="/exercise-form">
+                        <h2 style={homeStyle.titleStyle}>Plan Workout</h2>
                     </NavLink>
                 </section>
             </main>

@@ -26,8 +26,8 @@ const resultsCSS = {
 };
 
 
-
 function Results(props) {
+  const navigate = useNavigate();
   const [userSelectionObj, setUserSelectionObj] = useState(
     {
       name: "",
@@ -47,9 +47,10 @@ function Results(props) {
 
   const handleSelect = (e) => {
     e.preventDefault()
-    setUserSelectionObj(userSelectionObj.name = 'hello')
     console.log(userSelectionObj)
     // props.setExercisesData()
+
+    navigate("/exercise-form")
   }
 
   return (
@@ -70,7 +71,7 @@ function Results(props) {
                   onChange={e => { setSelectedName(e.target.value) }}>
                 </input>
                 <input value={data.target}
-                  onChange={e => { }}>
+                  onChange={e => { setUserSelectionObj({ ...userSelectionObj, target: e.target.value }) }}>
                 </input>
                 <input value={data.equipment}
                   onChange={e => { setUserSelectionObj({ ...userSelectionObj, equipment: e.target.value }) }}>
