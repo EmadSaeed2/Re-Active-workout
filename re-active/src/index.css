@@ -46,6 +46,9 @@ code {
   overflow: hidden;
 }
 
+a.active{
+  text-decoration: underline var(--react--yellow) !important;
+}
 .buttonReact {
   font-size: 1.5rem;
   font-weight: bold;

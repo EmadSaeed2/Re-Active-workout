@@ -29,6 +29,7 @@ const resultsCSS = {
 function Results(props) {
   const navigate = useNavigate();
   const [userSelectionObj, setUserSelectionObj] = useState(
+
     {
       name: "",
       target: "",
