@@ -11,20 +11,20 @@ import ExerciseSearch from "./components/ExerciseSearch";
 import Results from "./components/Results";
 
 function App() {
-  let [homeStatus, setHomeStatus] = useState("Home");
+  const [exercisesData, setExercisesData] = useState({});
   const [userSelection, setUserSelection] = useState(userSelectionData);
 
   return (
     <>
-      <Header homeStatus={homeStatus} setHomeStatus={setHomeStatus} />
-      <div className="wrapper">
+      <Header />
+      <div>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/history" element={<History userSelection={userSelection} setUserSelection={setUserSelection} />} />
           <Route path="/exercise-form" element={<ExerciseFormPage userSelection={userSelection} setUserSelection={setUserSelection} />} />
-          <Route path="/filter-category" element={<FilterCategory />} />
+          <Route path="/filter-category" element={<FilterCategory exercisesData={exercisesData} setExercisesData={setExercisesData} />} />
           <Route path="/exercise-search" element={<ExerciseSearch />} />
-          <Route path="/results" element={<Results />} />
+          <Route path="/results" element={<Results FilterCategory exercisesData={exercisesData} setExercisesData={setExercisesData} />} />
         </Routes>
       </div>
       <Footer />

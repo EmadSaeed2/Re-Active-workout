@@ -106,9 +106,10 @@ input[type="date"]::-webkit-datetime-edit-year-field {
 }
 
 @media (orientation: portrait) {
-  .wrapper {
-    height: auto;
-  }
+  /* .wrapper {
+    height: 100% !important;
+    background-color: red;
+  } */
 
   /* exFormPage */
   .exFormPageContainer {
