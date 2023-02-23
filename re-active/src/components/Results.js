@@ -6,7 +6,7 @@ const apiKey = "tyKkR6aVa1kcx3egsUokWA==JKPcXBMyGNHKchV1";
 const resultsCSS = {
   main: {
     display: "flex",
-    height: "100%",
+    flexGrow: "1",
     backgroundColor: "var(--react--lightGrey)",
     margin: "24px 0px",
     justifyContent: "center",

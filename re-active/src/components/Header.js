@@ -8,7 +8,7 @@ const headerCSS = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    height: "100px",
+    height: "25%",
     padding: "0px 28px",
     marginBottom: "24px",
   },
@@ -25,7 +25,7 @@ const headerCSS = {
     color: "var(--react--yellow)",
   },
   logoStyle: {
-    maxWidth: "90px",
+    maxWidth: "100px",
     marginRight: "10px",
   },
 };
@@ -39,18 +39,17 @@ function Header(props) {
       </div>
       <nav style={headerCSS.navStyle}>
         <NavLink
-        className="nav"
-        isactive={navUnderline==="home" ? "home" : ""}
+          className="nav"
+          isactive={navUnderline === "home" ? "home" : ""}
           to="/"
           style={headerCSS.linkStyle}
-          onClick={() => setHomeStatus("Home")
-        }
+          onClick={() => setHomeStatus("Home")}
         >
           Home
         </NavLink>
         <NavLink
-        className="nav"
-        isactive={navUnderline==="history" ? "history" : ""}
+          className="nav"
+          isactive={navUnderline === "history" ? "history" : ""}
           to="/history"
           style={headerCSS.linkStyle}
           onClick={() => setHomeStatus("Home")}
@@ -58,8 +57,8 @@ function Header(props) {
           History
         </NavLink>
         <NavLink
-        className="nav"
-        isactive={navUnderline==="contact" ? "contact" : ""}
+          className="nav"
+          isactive={navUnderline === "contact" ? "contact" : ""}
           to="/contact"
           style={headerCSS.linkStyle}
           onClick={() => setHomeStatus("Home")}

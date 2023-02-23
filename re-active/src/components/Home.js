@@ -8,14 +8,14 @@ const homeStyle = {
     display: "flex",
     justifyContent: "center",
     padding: "0px 10px 0px 10px",
-    marginBottom: "24px"
-
+    marginBottom: "24px",
+    height: "10%",
   },
   main: {
     borderTop: "2px solid var(--react--black)",
     display: "flex",
-    height: "100%",
-    marginBottom: "24px"
+    flexGrow: "1",
+    marginBottom: "24px",
   },
   excerciseStyle: {
     display: "flex",
@@ -42,7 +42,7 @@ const homeStyle = {
 function Home(props) {
   let [filterCat, setFilterCat] = useState(false);
   let { homeStatus, setHomeStatus } = props;
-  switch(homeStatus) {
+  switch (homeStatus) {
     case "loadSearch":
       return (
         <ExerciseSearch homeStatus={homeStatus} setHomeStatus={setHomeStatus} />
@@ -50,34 +50,32 @@ function Home(props) {
     case "FilterLoad":
       return (
         <FilterCategory
-        homeStatus={homeStatus}
-        setHomeStatus={setHomeStatus}
-        filterCat={filterCat}
-        setFilterCat={setFilterCat}
-      />
+          homeStatus={homeStatus}
+          setHomeStatus={setHomeStatus}
+          filterCat={filterCat}
+          setFilterCat={setFilterCat}
+        />
       );
-     case "Results":
-      return(
+    case "Results":
+      return (
         <Results
-        homeStatus={homeStatus}
-        setHomeStatus={setHomeStatus}
-        filterCat={filterCat}
-        setFilterCat={setFilterCat}
-      />
+          homeStatus={homeStatus}
+          setHomeStatus={setHomeStatus}
+          filterCat={filterCat}
+          setFilterCat={setFilterCat}
+        />
       );
-
   }
 
   return (
     <>
       <h1 style={homeStyle.h1Style}>Let's Go!</h1>
       <main style={homeStyle.main}>
-        <section 
+        <section
           style={homeStyle.excerciseStyle}
           onClick={() => setHomeStatus("loadSearch")}
         >
           <h2 style={homeStyle.titleStyle}>Excercise Search</h2>
-
         </section>
         <section
           style={homeStyle.filterStyle}

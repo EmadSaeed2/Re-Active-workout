@@ -6,18 +6,18 @@ import Results from "./Results";
 const styles = {
   main: {
     display: "flex",
-    height: "100%",
+    flexGrow: "1",
     backgroundColor: "var(--react--lightGrey)",
     marginBottom: "24px",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   formContainer: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width:"100%"
-   },
+    width: "100%",
+  },
   form: {
     height: "100%",
     display: "flex",
@@ -27,10 +27,9 @@ const styles = {
     fontSize: "1.5rem",
     gap: "30px",
   },
-  buttonWrapper:{
-    marginTop: "30px"
-  }
-  
+  buttonWrapper: {
+    marginTop: "30px",
+  },
 };
 function FilterCategory(props) {
   let { homeStatus, setHomeStatus, filterCat, setFilterCat } = props;

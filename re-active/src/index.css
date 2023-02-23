@@ -14,8 +14,15 @@
 
 html,
 body {
-  height: 100vh;
+  height: 100% !important;
   background-color: var(--react--yellow);
+  overflow: auto;
+}
+#root {
+  height: 100% !important;
+  /* display: flex;
+  flex-direction: column; */
+  overflow: auto;
 }
 
 body {
@@ -38,10 +45,12 @@ code {
 }
 
 .wrapper {
-  height: calc(100vh - 124px);
-  overflow: hidden;
+  height: auto;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
-a.active{
+a.active {
   text-decoration: underline var(--react--yellow) !important;
 }
 .buttonReact {
@@ -85,7 +94,6 @@ a.active{
 .rbc-today {
   background-color: #fdf7e8 !important;
 }
-
 /* placeholder text style */
 input[type="date"]::-webkit-datetime-edit-text,
 input[type="date"]::-webkit-datetime-edit-month-field,

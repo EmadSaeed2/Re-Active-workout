@@ -2,7 +2,7 @@ const footerStyle = {
   // display: "block",
   display: "flex",
   justifyContent: "center",
-  alignItems: "center",
+  // alignItems: "flex-end",
   height: "24px",
 };
 
