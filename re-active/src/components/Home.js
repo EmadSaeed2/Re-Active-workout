@@ -37,7 +37,7 @@ const homeStyle = {
 
 function Home() {
     return (
-        <div className="wrapper">
+        <>
             <h1 style={homeStyle.h1Style}>Let's Go!</h1>
             <main style={homeStyle.main}>
                 <section style={homeStyle.excerciseStyle} >
@@ -51,7 +51,7 @@ function Home() {
                     </NavLink>
                 </section>
             </main>
-        </div>
+        </>
     )
 }
 
