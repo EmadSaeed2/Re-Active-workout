@@ -1,7 +1,5 @@
 import { useState } from "react";
-import testData from "../data/testExcerciseData.json";
-import logo from "../images/ReactDumbellSiteColours.png"; //TEMP IMAGE
-const apiKey = "tyKkR6aVa1kcx3egsUokWA==JKPcXBMyGNHKchV1";
+import { useNavigate } from "react-router-dom";
 
 const resultsCSS = {
   main: {
@@ -27,68 +25,72 @@ const resultsCSS = {
   },
 };
 
-function Results(props) {
-  let [results, setResults] = useState(false);
-  let userSelection = props.filterCat;
-  function capitalise(string) {
-    let firstLetter = string.charAt(0).toUpperCase();
-    return firstLetter + string.slice(1);
-  }
-  // fetch api here using user selection and .then the main
-  fetch(
-    `https://api.api-ninjas.com/v1/exercises?muscle=${userSelection.muscleType}`,
-    {
-      headers: { "X-Api-Key": apiKey },
-    }
-  )
-    .then((res) => res.json())
-    .then((data) => {
-      setResults(data);
-    })
-    .catch((err) => console.error(err));
-  if (!results) {
-    return (
-      <main style={resultsCSS.main}>
-        <h1 style={resultsCSS.h1}>Your results will load shortly!</h1>
-      </main>
-    );
-  } else {
-    return (
-      <main style={resultsCSS.main}>
-        {results.map((data, index) => {
-          return (
-            <div className="resultCard" key={index}>
-              <h3 className="resultData"> {data.name}</h3>
-              <p>
-                Target Muscle:
-                <span className="resultData"> {capitalise(data.muscle)}</span>
-              </p>
-              <p>
-                Equipment used:
-                <span className="resultData">
-                  {" "}
-                  {capitalise(data.equipment)}
-                </span>
-              </p>
-              <p>
-                Difficulty:{" "}
-                <span className="resultData">
-                  {capitalise(data.difficulty)}
-                </span>
-              </p>
 
-              <img
-                src={logo}
-                alt="Re-Active Logo"
-                style={resultsCSS.logoStyle}
-              />
-              <button className="buttonReact">Select</button>
-            </div>
-          );
-        })}
-      </main>
-    );
+function Results(props) {
+  const navigate = useNavigate();
+  const [userSelectionObj, setUserSelectionObj] = useState(
+
+    {
+      name: "",
+      target: "",
+      equipment: "",
+      bodyPart: "",
+      image: ""
+    });
+
+  const [selectedName, setSelectedName] = useState('');
+  console.log(selectedName)
+  const [selectedTarget, setSelectedTarget] = useState('');
+  const [selectedEquipment, setSelectedEquipment] = useState('');
+  const [selectedBodyPart, setSelectedBodyPart] = useState('');
+  const [selectedImage, setSelectedImage] = useState('');
+
+
+  const handleSelect = (e) => {
+    e.preventDefault()
+    console.log(userSelectionObj)
+    // props.setExercisesData()
+
+    navigate("/exercise-form")
   }
+
+  return (
+    <main style={resultsCSS.main}>
+
+      {props.exercisesData && props.exercisesData.map((data, index) => {
+        return (
+          <div className="resultCard" key={index}>
+            <h3 className="resultData"> {data.name}</h3>
+            <p> Target Muscle: <span className="resultData"> {data.target}</span></p>
+            <p> Equipment used: <span className="resultData"> {data.equipment}</span></p>
+            <p> Body Part: <span className="resultData"> {data.bodyPart} </span> </p>
+
+            <img src={data.gifUrl} alt="Re-Active Logo" style={resultsCSS.logoStyle} />
+            <form>
+              <div style={{ display: "none" }}>
+                <input value={data.name}
+                  onChange={e => { setSelectedName(e.target.value) }}>
+                </input>
+                <input value={data.target}
+                  onChange={e => { setUserSelectionObj({ ...userSelectionObj, target: e.target.value }) }}>
+                </input>
+                <input value={data.equipment}
+                  onChange={e => { setUserSelectionObj({ ...userSelectionObj, equipment: e.target.value }) }}>
+                </input>
+                <input value={data.bodyPart}
+                  onChange={e => { setUserSelectionObj({ ...userSelectionObj, bodyPart: e.target.value }) }}>
+                </input>
+                <input value={data.gifUrl}
+                  onChange={e => { setUserSelectionObj({ ...userSelectionObj, image: e.target.value }) }}>
+                </input>
+              </div>
+              <button className="buttonReact" name={data.name} target={data.target} equipment={data.equipment} bodyPart={data.bodyPart} image={data.gifUrl} onClick={handleSelect}>Select</button>
+            </form>
+          </div>
+        );
+      })}
+    </main>
+  );
 }
 
 export default Results;

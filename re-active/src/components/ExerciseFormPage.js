@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 import FormPageCard from './FormPageCard';
 import format from 'date-fns/format'
 
@@ -52,6 +53,8 @@ const exFormPageStyles = {
 }
 
 function ExerciseFormPage(props) {
+    const navigate = useNavigate();
+
     const [dateInputType, setDateInputType] = useState('text');
     const [timeInputType, setTimeInputType] = useState('text');
     const [selectedDate, setSelectedDate] = useState('');
@@ -80,6 +83,8 @@ function ExerciseFormPage(props) {
         }
         exercises.push({ ...exercise });
         localStorage.setItem("exercises", JSON.stringify(exercises));
+
+        navigate("/history")
     }
 
     return (
@@ -122,7 +127,7 @@ function ExerciseFormPage(props) {
                         <input style={exFormPageStyles.exFormInput} placeholder="Duration (minutes)" id="ex-duration" type="number" value={selectedDuration}
                             onChange={e => { setSelectedDuration(e.target.value) }}
                         />
-                        <button style={exFormPageStyles.exFormButton} type="submit">Save To Calendar</button>
+                        <button style={exFormPageStyles.exFormButton} type="submit" >Save To Calendar</button>
                     </form>
                 </div>
             </div>
