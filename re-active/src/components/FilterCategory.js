@@ -1,70 +1,100 @@
-import categories from "../data/excerciseCat.json";
+import { useState } from "react";
+import categories from "../data/exerciseCat.json";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
-import Results from "./Results";
 
 const styles = {
-  main: {
-    display: "flex",
-    height: "100%",
-    backgroundColor: "var(--react--lightGrey)",
-    marginBottom: "24px",
-    justifyContent: "center",
-  },
-  form: {
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-evenly",
-    paddingBottom: "100px",
-    width: "40%",
-    fontSize: "1.5rem",
-  },
+    main: {
+        display: "flex",
+        height: "100%",
+        backgroundColor: "var(--react--lightGrey)",
+        marginBottom: "24px",
+        justifyContent: "center",
+    },
+    form: {
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-evenly",
+        paddingBottom: "100px",
+        width: "40%",
+        fontSize: "1.5rem",
+        alignItems: "center"
+    },
+    ddStyle: {
+        width: "100%"
+    }
 };
-function FilterCategory(props) {
-  console.log(props);
-  let { homeStatus, setHomeStatus, filterCat, setFilterCat } = props;
-  let choices = {
-    excerciseType: "",
-    muscleType: "",
-    difficulty: "",
-  };
-  function onSubmit(e) {
-    e.preventDefault();
-    setHomeStatus("Results");
-    setFilterCat(choices);
-  }
-  return (
-    <>
-      <main style={styles.main}>
-        <form style={styles.form}>
-          <Dropdown
-            onChange={(e) => (choices.excerciseType = e.value)}
-            style={styles.ddStyle}
-            options={categories[0]}
-            value="Excercise Type"
-            placeholder="Select an option"
-          />
-          <Dropdown
-            onChange={(e) => (choices.muscleType = e.value)}
-            style={styles.ddStyle}
-            options={categories[1]}
-            value="Muscle Type"
-            placeholder="Select an option"
-          />
-          <Dropdown
-            onChange={(e) => (choices.difficulty = e.value)}
-            style={styles.ddStyle}
-            options={categories[2]}
-            value="Difficulty"
-            placeholder="Select an option"
-          />
-          <button className="buttonReact" onClick={(e) => onSubmit(e)}>
-            Submit
-          </button>
-        </form>
-      </main>
-    </>
-  );
+
+const FilterCategory = () => {
+
+    const [exerciseType, setExerciseType] = useState('');
+    const [muscleType, setMuscleType] = useState('');
+    const [difficulty, setDifficulty] = useState('');
+    const [exercisesData, setExercisesData] = useState([]);
+
+    const [typeMenu, setTypeMenu] = useState(false);
+    const [muscleMenu, setMuscleMenu] = useState(false);
+    const [difficultyMenu, setDifficultyMenu] = useState(false);
+
+    const apiNinjasUrl = `https://api.api-ninjas.com/v1/exercises?type=${exerciseType}&muscle=${muscleType}&difficulty=${difficulty}`
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        fetch(apiNinjasUrl, {
+            method: "GET",
+            headers: { "X-Api-Key": "BL6BYitqkUgnFRbJJAz94g==R7cuLcmvlOJQ0OaT" }
+        })
+            .then(response => response.json())
+            .then(data => {
+                setExercisesData({ ...data })
+                console.log(exercisesData)
+            })
+            .catch(err => console.log(err));
+
+        console.log(apiNinjasUrl)
+
+        setExerciseType('')
+        setMuscleType('')
+        setDifficulty('')
+    }
+
+    return (
+        <>
+            <main style={styles.main}>
+                <form className="filter-form" style={styles.form}>
+                    <p>Please select an option</p>
+                    <Dropdown disabled={typeMenu}
+                        onChange={e => {
+                            setExerciseType(e.value.toLocaleLowerCase())
+                            setMuscleMenu(true)
+                            setDifficultyMenu(true)
+                        }}
+                        style={{ backgroundColor: "red" }}
+                        options={categories[0]}
+                        value={exerciseType}
+                        placeholder="Select Exercise Type"
+                    />
+                    <Dropdown disabled={muscleMenu}
+                        onChange={e => setMuscleType(e.value.toLocaleLowerCase())}
+                        style={styles.ddStyle}
+                        options={categories[1]} value={muscleType}
+                        placeholder="Select Targeted Muscle"
+                    />
+                    <Dropdown disabled={difficultyMenu}
+                        onChange={(e) => setDifficulty(e.value.toLocaleLowerCase())}
+                        style={styles.ddStyle}
+                        options={categories[2]}
+                        value={difficulty}
+                        placeholder="Select Difficulty"
+                    />
+                    <button className="buttonReact" onClick={handleSubmit}>
+                        Submit
+                    </button>
+                </form>
+            </main>
+        </>
+    )
 }
-export default FilterCategory;
+
+export default FilterCategory
