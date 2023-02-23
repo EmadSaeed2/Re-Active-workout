@@ -15,7 +15,6 @@ const homeStyle = {
     borderTop: "2px solid var(--react--black)",
     display: "flex",
     flexGrow: "1",
-    marginBottom: "24px",
   },
   excerciseStyle: {
     display: "flex",

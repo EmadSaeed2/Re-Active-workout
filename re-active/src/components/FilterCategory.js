@@ -8,7 +8,6 @@ const styles = {
     display: "flex",
     flexGrow: "1",
     backgroundColor: "var(--react--lightGrey)",
-    marginBottom: "24px",
     justifyContent: "center",
     alignItems: "center",
   },

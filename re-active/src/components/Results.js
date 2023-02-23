@@ -8,7 +8,6 @@ const resultsCSS = {
     display: "flex",
     flexGrow: "1",
     backgroundColor: "var(--react--lightGrey)",
-    margin: "24px 0px",
     justifyContent: "center",
     width: "100%",
     flexWrap: "wrap",
