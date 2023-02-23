@@ -24,7 +24,7 @@ const historyStyles = {
     padding: "10px",
   },
   calendarWrapper: {
-    height: "2000px",
+    height: "500px",
     backgroundColor: "var(--react--darkGrey)",
     padding: "50px 70px 100px 70px",
     flexGrow: "1",
