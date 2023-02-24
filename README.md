@@ -1,5 +1,4 @@
-# ReActive Fitness
-Workout logger application
+# ReActive Workout Planner
 
 ## Description
 
