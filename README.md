@@ -34,7 +34,7 @@ Visit ReActive today, and welcome the challenge!  - [Let’s Go!](https://63f7f7
 
 <br />
 <div align="center">
-  <img src="assets\Images\landingPage.png" style="width: 60%">
+  <img src="assets\images\landingPage.png" style="width: 60%">
 </div>
 <br />
 
@@ -47,7 +47,7 @@ Choose workout-exercise
 
 <br />
 <div align="center">
-  <img src="assets\Images\filterByCategory.png" alt="T" style="width: 60%">
+  <img src="assets\images\filterByCategory.png" style="width: 60%">
 </div>
 <br />
 
@@ -55,7 +55,7 @@ Alternatively click Plan Workout to input data from previously selected excercis
 
 <br />
 <div align="center">
-  <img src="assets\Images\planWorkoutForm.png" style="width: 60%">
+  <img src="assets\images\planWorkoutForm.png" style="width: 60%">
 </div>
 <br />
 
@@ -71,7 +71,7 @@ After clicking Save to Calendar the selected and filled out excercise is saved t
 
 <br />
 <div align="center">
-  <img src="assets\Images\Calendar.png"  style="width: 60%">
+  <img src="assets\images\Calendar.png"  style="width: 60%">
 </div>
 <br />
 
