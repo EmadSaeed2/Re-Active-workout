@@ -13,18 +13,53 @@ import Results from "./components/Results";
 function App() {
   const [exercisesData, setExercisesData] = useState({});
   const [userSelection, setUserSelection] = useState(userSelectionData);
+  let [excerciseData, setExcerciseData] = useState([]);
+  let [navUnderline, setNavUnderline] = useState("home");
 
   return (
     <>
-      <Header />
-      <div>
+      <Header navUnderline={navUnderline} setNavUnderline={setNavUnderline} />
+      <div className="wrapper">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/history" element={<History userSelection={userSelection} setUserSelection={setUserSelection} />} />
-          <Route path="/exercise-form" element={<ExerciseFormPage userSelection={userSelection} setUserSelection={setUserSelection} />} />
-          <Route path="/filter-category" element={<FilterCategory exercisesData={exercisesData} setExercisesData={setExercisesData} />} />
+          <Route
+            path="/history"
+            element={
+              <History
+                userSelection={userSelection}
+                setUserSelection={setUserSelection}
+              />
+            }
+          />
+          <Route
+            path="/exercise-form"
+            element={
+              <ExerciseFormPage
+                userSelection={userSelection}
+                setUserSelection={setUserSelection}
+              />
+            }
+          />
+          <Route
+            path="/filter-category"
+            element={
+              <FilterCategory
+                excerciseData={excerciseData}
+                setExcerciseData={setExcerciseData}
+              />
+            }
+          />
           <Route path="/exercise-search" element={<ExerciseSearch />} />
-          <Route path="/results" element={<Results FilterCategory exercisesData={exercisesData} setExercisesData={setExercisesData} />} />
+          <Route
+            path="/results"
+            element={
+              <Results
+                FilterCategory
+                exerciseData={excerciseData}
+                setExerciseData={setExcerciseData}
+              />
+            }
+          />
         </Routes>
       </div>
       <Footer />

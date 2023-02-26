@@ -5,113 +5,138 @@ import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 
 const styles = {
-    main: {
-        display: "flex",
-        flexDirection: "column",
-        height: "100%",
-        backgroundColor: "var(--react--lightGrey)",
-        // marginBottom: "24px",
-        justifyContent: "center",
-        alignItems: "center"
-    },
-    form: {
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-evenly",
-        paddingBottom: "100px",
-        width: "40%",
-        fontSize: "1.5rem",
-        alignItems: "center"
-    },
-    ddStyle: {
-        width: "100%"
-    }
+  main: {
+    display: "flex",
+    flexDirection: "column",
+    flexGrow: "1",
+    backgroundColor: "var(--react--lightGrey)",
+    // marginBottom: "24px",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  formContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+  },
+  form: {
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    paddingBottom: "100px",
+    width: "30%",
+    fontSize: "1.5rem",
+    gap: "30px",
+  },
+  ddStyle: {
+    width: "100%",
+  },
+  buttonWrapper: {
+    marginTop: "30px",
+  },
 };
 
 const FilterCategory = (props) => {
-    const navigate = useNavigate();
-    const [exerciseType, setExerciseType] = useState('');
-    const [muscleType, setMuscleType] = useState('');
-    const [difficulty, setDifficulty] = useState('');
+  let { excerciseData, setExcerciseData } = props;
+  console.log(props);
+  const navigate = useNavigate();
+  const [exerciseType, setExerciseType] = useState("");
+  const [muscleType, setMuscleType] = useState("");
+  const [difficulty, setDifficulty] = useState("");
 
-    const [typeMenu, setTypeMenu] = useState(false);
-    const [muscleMenu, setMuscleMenu] = useState(false);
-    const [difficultyMenu, setDifficultyMenu] = useState(false);
+  //   const [typeMenu, setTypeMenu] = useState(false);
+  //   const [muscleMenu, setMuscleMenu] = useState(false);
+  //   const [difficultyMenu, setDifficultyMenu] = useState(false);
 
-    const apiNinjasUrl = `https://api.api-ninjas.com/v1/exercises?type=${exerciseType}&muscle=${muscleType}&difficulty=${difficulty}`
+  const apiNinjasUrl = `https://api.api-ninjas.com/v1/exercises?type=${exerciseType}&muscle=${muscleType}&difficulty=${difficulty}`;
+  //   const [apiUrl, setApiUrl] = useState(
+  //     "https://exercisedb.p.rapidapi.com/exercises/"
+  //   );
 
-    // fetch api-ninja
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        fetch(apiNinjasUrl, {
-            method: "GET",
-            headers: { "X-Api-Key": "BL6BYitqkUgnFRbJJAz94g==R7cuLcmvlOJQ0OaT" }
-        })
-            .then(response => response.json())
-            .then(data => {
-                props.setExercisesData({ ...data })
-                // navigate to result page
-                console.log(props.exercisesData)
-                Object.keys(props.exercisesData).length > 0 && navigate("/results");
-            })
-            .catch(err => console.log(err));
+  //   const options = {
+  //         method: "GET",
+  //         headers: {
+  //           "X-RapidAPI-Key": "d620a14592msh467d7fce2a6bb8cp1b6de7jsn6f8296620e92",
+  //           "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
+  //         },
+  //       };
 
-        console.log(apiNinjasUrl)
+  // fetch api-ninja
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch(apiNinjasUrl, {
+      method: "GET",
+      headers: { "X-Api-Key": "BL6BYitqkUgnFRbJJAz94g==R7cuLcmvlOJQ0OaT" },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.length === 0) {
+          alert("No matching excercises found, please refine search");
+        } else {
+          setExcerciseData([...data]);
+          navigate("/results");
+        }
+      })
+      .catch((err) => console.log(err));
 
-        // reset menus
-        setExerciseType('')
-        setMuscleType('')
-        setDifficulty('')
-        setTypeMenu(false)
-        setMuscleMenu(false)
-        setDifficultyMenu(false)
-    }
+    // reset menus
+    setExerciseType("");
+    setMuscleType("");
+    setDifficulty("");
+    // setTypeMenu(false);
+    // setMuscleMenu(false);
+    // setDifficultyMenu(false);
+  };
 
-    return (
-        <div className="wrapper">
-            <main style={styles.main}>
-                <p style={{ marginTop: "100px" }}>Please select an option</p>
-                <form className="filter-form" style={styles.form}>
-                    <Dropdown disabled={typeMenu}
-                        onChange={e => {
-                            setExerciseType(e.value.toLocaleLowerCase())
-                            setMuscleMenu(true)
-                            setDifficultyMenu(true)
-                        }}
-                        style={{ backgroundColor: "red" }}
-                        options={categories[0]}
-                        value={exerciseType}
-                        placeholder="Select Exercise Type"
-                    />
-                    <Dropdown disabled={muscleMenu}
-                        onChange={e => {
-                            setMuscleType(e.value.toLocaleLowerCase())
-                            setTypeMenu(true)
-                            setDifficultyMenu(true)
-                        }}
-                        style={styles.ddStyle}
-                        options={categories[1]} value={muscleType}
-                        placeholder="Select Targeted Muscle"
-                    />
-                    <Dropdown disabled={difficultyMenu}
-                        onChange={(e) => {
-                            setDifficulty(e.value.toLocaleLowerCase())
-                            setTypeMenu(true)
-                            setMuscleMenu(true)
-                        }}
-                        style={styles.ddStyle}
-                        options={categories[2]}
-                        value={difficulty}
-                        placeholder="Select Difficulty"
-                    />
-                    <button className="buttonReact" onClick={handleSubmit}>
-                        Submit
-                    </button>
-                </form>
-            </main>
-        </div>
-    )
-}
+  return (
+    <>
+      <main style={styles.main}>
+        <p style={{ marginTop: "100px" }}>Please select an option</p>
+        <form className="filter-form" style={styles.form}>
+          <Dropdown
+            // disabled={typeMenu}
+            onChange={(e) => {
+              setExerciseType(e.value.toLocaleLowerCase());
+              //   setMuscleMenu(true);
+              //   setDifficultyMenu(true);
+            }}
+            style={{ backgroundColor: "red" }}
+            options={categories[0]}
+            value={exerciseType}
+            placeholder="Select Exercise Type"
+          />
+          <Dropdown
+            // disabled={muscleMenu}
+            onChange={(e) => {
+              setMuscleType(e.value.toLocaleLowerCase());
+              //   setTypeMenu(true);
+              //   setDifficultyMenu(true);
+            }}
+            style={styles.ddStyle}
+            options={categories[1]}
+            value={muscleType}
+            placeholder="Select Targeted Muscle"
+          />
+          <Dropdown
+            // disabled={difficultyMenu}
+            onChange={(e) => {
+              setDifficulty(e.value.toLocaleLowerCase());
+              //   setTypeMenu(true);
+              //   setMuscleMenu(true);
+            }}
+            style={styles.ddStyle}
+            options={categories[2]}
+            value={difficulty}
+            placeholder="Select Difficulty"
+          />
+          <button className="buttonReact" onClick={handleSubmit}>
+            Submit
+          </button>
+        </form>
+      </main>
+    </>
+  );
+};
 
-export default FilterCategory
+export default FilterCategory;

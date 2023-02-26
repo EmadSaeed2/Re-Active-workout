@@ -14,12 +14,15 @@
 
 html,
 body {
-  height: 100vh;
+  height: 100% !important;
   background-color: var(--react--yellow);
+  overflow: auto;
 }
-
-a {
-  text-decoration: none;
+#root {
+  height: 100% !important;
+  /* display: flex;
+  flex-direction: column; */
+  overflow: auto;
 }
 
 body {
@@ -42,10 +45,14 @@ code {
 }
 
 .wrapper {
-  height: calc(100vh - 148px);
-  overflow: hidden;
+  height: auto;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
-
+a.active {
+  text-decoration: underline var(--react--yellow) !important;
+}
 .buttonReact {
   font-size: 1.5rem;
   font-weight: bold;
@@ -75,17 +82,8 @@ code {
   max-height: 250px;
   padding: 5px;
 }
-
 .resultData {
   color: var(--react--lightGrey);
-}
-
-.Dropdown-root {
-  width: 100%;
-}
-
-.Dropdown-placeholder {
-  text-align: center;
 }
 
 /* Calendar */
@@ -96,7 +94,6 @@ code {
 .rbc-today {
   background-color: #fdf7e8 !important;
 }
-
 /* placeholder text style */
 input[type="date"]::-webkit-datetime-edit-text,
 input[type="date"]::-webkit-datetime-edit-month-field,
@@ -106,10 +103,9 @@ input[type="date"]::-webkit-datetime-edit-year-field {
 }
 
 @media (orientation: portrait) {
-  /* .wrapper {
-    height: 100% !important;
-    background-color: red;
-  } */
+  .wrapper {
+    height: auto;
+  }
 
   /* exFormPage */
   .exFormPageContainer {
@@ -130,12 +126,5 @@ input[type="date"]::-webkit-datetime-edit-year-field {
 
   .imageWrapper {
     height: 300px !important;
-  }
-
-
-
-
-  .filter-form {
-    width: 80% !important;
   }
 }
