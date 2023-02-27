@@ -78,7 +78,11 @@ function ExerciseFormPage(props) {
       "yyyy-MM-dd HH:mm:ss"
     );
     const titleObj = {
-      ...exerciseData.name,
+      muscle: exerciseData.muscle,
+      equipment: exerciseData.equipment,
+      difficulty: exerciseData.difficulty,
+      type: exerciseData.type,
+      excercise: exerciseData.name,
       load: selectedLoad,
       repRange: selectedRepRange,
       noOfSets: selectedNoOfSets,

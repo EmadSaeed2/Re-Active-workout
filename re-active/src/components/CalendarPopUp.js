@@ -64,7 +64,7 @@ function CalendarPopUp(props) {
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            backgroundImage: props.exData && `url(${props.exData.image_link})`,
+            backgroundImage: props.exData && `url(${props.exData.gif})`,
           }}
         ></div>
         <div style={calPopUpStyle.textWrapper}>
@@ -79,16 +79,15 @@ function CalendarPopUp(props) {
           </p>
           <ul style={calPopUpStyle.listWrapper}>
             <li style={calPopUpStyle.list}>
-              <strong> Muscle:</strong>{" "}
-              {props.exData && props.exData.muscle.toUpperCase()}
+              <strong> Muscle:</strong> {props.exData && props.exData.muscle}
             </li>
             <li style={calPopUpStyle.list}>
               <strong> Equipment:</strong>{" "}
-              {props.exData && props.exData.equipment.toUpperCase()}
+              {props.exData && props.exData.equipment}
             </li>
             <li style={calPopUpStyle.list}>
               <strong> Difficulty:</strong>{" "}
-              {props.exData && props.exData.difficulty.toUpperCase()}
+              {props.exData && props.exData.difficulty}
             </li>
           </ul>
         </div>

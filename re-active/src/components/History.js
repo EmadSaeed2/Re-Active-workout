@@ -27,7 +27,6 @@ const historyStyles = {
     height: "2000px",
     backgroundColor: "var(--react--darkGrey)",
     padding: "50px 70px 100px 70px",
-    flexGrow: "1",
   },
 };
 
@@ -37,16 +36,15 @@ function History(props) {
 
   // Get data from local storage
   let exercises = JSON.parse(localStorage.getItem("exercises"));
-  console.log(exercises);
   if (!exercises) {
     exercises = [];
   }
+  console.log(exercises);
 
   const handleClick = (e) => {
     if (e.target.className === "rbc-event-content") {
+      console.log(e.target);
       setExData(JSON.parse(e.target.getAttribute("title")));
-
-      console.log(exData);
       setDisplayPopUp("block");
     }
   };
@@ -54,7 +52,11 @@ function History(props) {
   return (
     <>
       <div style={{ display: displayPopUp }}>
-        {/* <CalendarPopUp exData={exData} setDisplayPopUp={setDisplayPopUp} displayPopUp={displayPopUp} /> */}
+        <CalendarPopUp
+          exData={exData}
+          setDisplayPopUp={setDisplayPopUp}
+          displayPopUp={displayPopUp}
+        />
       </div>
       <div>
         <h1 style={historyStyles.title}>Your Workout Calendar</h1>
@@ -66,7 +68,7 @@ function History(props) {
           startAccessor="start"
           endAccessor="end"
           style={{ background: "#fff" }}
-          titleAccessor="exercise"
+          titleAccessor="name"
         />
       </div>
     </>

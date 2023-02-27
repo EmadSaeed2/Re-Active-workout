@@ -93,6 +93,11 @@ a.active {
   width: 100px;
 }
 
+.rbc-event-content {
+  color: white !important;
+  width: auto !important;
+  height: 100% !important;
+}
 .rbc-today {
   background-color: #fdf7e8 !important;
 }
