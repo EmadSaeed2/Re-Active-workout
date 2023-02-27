@@ -38,7 +38,7 @@ const styles = {
 };
 
 const FilterCategory = (props) => {
-  let { excerciseData, setExcerciseData } = props;
+  let { exerciseData, setExerciseData } = props;
   console.log(props);
   const navigate = useNavigate();
   const [exerciseType, setExerciseType] = useState("");
@@ -72,9 +72,9 @@ const FilterCategory = (props) => {
       .then((response) => response.json())
       .then((data) => {
         if (data.length === 0) {
-          alert("No matching excercises found, please refine search");
+          alert("No matching exercises found, please refine search");
         } else {
-          setExcerciseData([...data]);
+          setExerciseData([...data]);
           navigate("/results");
         }
       })

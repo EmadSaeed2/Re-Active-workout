@@ -37,6 +37,7 @@ function History(props) {
 
   // Get data from local storage
   let exercises = JSON.parse(localStorage.getItem("exercises"));
+  console.log(exercises);
   if (!exercises) {
     exercises = [];
   }

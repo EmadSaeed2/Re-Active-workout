@@ -5,15 +5,14 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import History from "./components/History";
 import ExerciseFormPage from "./components/ExerciseFormPage";
-import userSelectionData from "./components/userSelectionData";
 import FilterCategory from "./components/FilterCategory";
 import ExerciseSearch from "./components/ExerciseSearch";
 import Results from "./components/Results";
 
 function App() {
   const [exercisesData, setExercisesData] = useState({});
-  const [userSelection, setUserSelection] = useState(userSelectionData);
-  let [excerciseData, setExcerciseData] = useState([]);
+  const [userSelection, setUserSelection] = useState({});
+  let [exerciseData, setExerciseData] = useState([]);
   let [navUnderline, setNavUnderline] = useState("home");
 
   return (
@@ -37,6 +36,8 @@ function App() {
               <ExerciseFormPage
                 userSelection={userSelection}
                 setUserSelection={setUserSelection}
+                exerciseData={exerciseData}
+                setExerciseData={setExerciseData}
               />
             }
           />
@@ -44,8 +45,8 @@ function App() {
             path="/filter-category"
             element={
               <FilterCategory
-                excerciseData={excerciseData}
-                setExcerciseData={setExcerciseData}
+                exerciseData={exerciseData}
+                setExerciseData={setExerciseData}
               />
             }
           />
@@ -55,8 +56,8 @@ function App() {
             element={
               <Results
                 FilterCategory
-                exerciseData={excerciseData}
-                setExerciseData={setExcerciseData}
+                exerciseData={exerciseData}
+                setExerciseData={setExerciseData}
               />
             }
           />

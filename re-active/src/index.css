@@ -89,6 +89,8 @@ a.active {
 /* Calendar */
 .rbc-event {
   background-color: var(--react--darkGrey) !important;
+  height: 300px;
+  width: 100px;
 }
 
 .rbc-today {
