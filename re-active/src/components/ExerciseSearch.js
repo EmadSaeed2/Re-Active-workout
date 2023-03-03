@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const styles = {
   main: {
@@ -49,34 +50,44 @@ const styles = {
 };
 
 function ExerciseSearch(props) {
-  const { homeStatus, setHomeStatus } = props;
-
+  let { exerciseData, setExerciseData } = props;
   const [exerciseName, setExerciseName] = useState("");
+  const navigate = useNavigate();
 
-  function onSubmit(event) {
-    event.preventDefault();
-    alert(`The exercise you entered was: ${exerciseName}`);
-    setHomeStatus("Results");
-  }
-  if (homeStatus === "Results") {
-    // return <Results homeStatus={homeStatus} setHomeStatus={setHomeStatus} />
-  }
+  const apiNinjasUrl = `https://api.api-ninjas.com/v1/exercises?name=${exerciseName}`;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(e);
+    console.log(apiNinjasUrl);
+    fetch(apiNinjasUrl, {
+      method: "GET",
+      headers: { "X-Api-Key": "BL6BYitqkUgnFRbJJAz94g==R7cuLcmvlOJQ0OaT" },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.length === 0) {
+          alert("No matching exercises found, please refine search");
+        } else {
+          setExerciseData([...data]);
+          navigate("/results");
+        }
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <>
       <main style={styles.main}>
         <div style={styles.formWrapper}>
-          <form>
+          <form onSubmit={(e) => handleSubmit(e)}>
             <input
               type="text"
-              value={exerciseName}
               placeholder={"Search by exercise name..."}
               style={styles.formInput}
               onChange={(event) => setExerciseName(event.target.value)}
             />
-            <button style={styles.button} onClick={(event) => onSubmit(event)}>
-              Search
-            </button>
+            <button className="buttonReact">Search</button>
           </form>
         </div>
       </main>

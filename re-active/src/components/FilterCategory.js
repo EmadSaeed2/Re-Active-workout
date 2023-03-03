@@ -45,22 +45,7 @@ const FilterCategory = (props) => {
   const [muscleType, setMuscleType] = useState("");
   const [difficulty, setDifficulty] = useState("");
 
-  //   const [typeMenu, setTypeMenu] = useState(false);
-  //   const [muscleMenu, setMuscleMenu] = useState(false);
-  //   const [difficultyMenu, setDifficultyMenu] = useState(false);
-
   const apiNinjasUrl = `https://api.api-ninjas.com/v1/exercises?type=${exerciseType}&muscle=${muscleType}&difficulty=${difficulty}`;
-  //   const [apiUrl, setApiUrl] = useState(
-  //     "https://exercisedb.p.rapidapi.com/exercises/"
-  //   );
-
-  //   const options = {
-  //         method: "GET",
-  //         headers: {
-  //           "X-RapidAPI-Key": "d620a14592msh467d7fce2a6bb8cp1b6de7jsn6f8296620e92",
-  //           "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
-  //         },
-  //       };
 
   // fetch api-ninja
   const handleSubmit = (e) => {

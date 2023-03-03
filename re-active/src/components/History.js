@@ -24,7 +24,7 @@ const historyStyles = {
     padding: "10px",
   },
   calendarWrapper: {
-    height: "2000px",
+    height: "1500px",
     backgroundColor: "var(--react--darkGrey)",
     padding: "50px 70px 100px 70px",
   },
@@ -39,11 +39,9 @@ function History(props) {
   if (!exercises) {
     exercises = [];
   }
-  console.log(exercises);
 
   const handleClick = (e) => {
     if (e.target.className === "rbc-event-content") {
-      console.log(e.target);
       setExData(JSON.parse(e.target.getAttribute("title")));
       setDisplayPopUp("block");
     }
@@ -69,6 +67,8 @@ function History(props) {
           endAccessor="end"
           style={{ background: "#fff" }}
           titleAccessor="name"
+          showMultiDayTimes
+          step={60}
         />
       </div>
     </>

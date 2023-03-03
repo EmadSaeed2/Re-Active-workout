@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../images/ReactDumbellSiteColours.png";
 
 const headerCSS = {
@@ -15,6 +15,7 @@ const headerCSS = {
   logoContainer: {
     display: "flex",
     alignItems: "center",
+    cursor: "pointer",
   },
   navStyle: {
     display: "flex",
@@ -30,10 +31,11 @@ const headerCSS = {
   },
 };
 function Header(props) {
+  let navigate = useNavigate();
   let { navUnderline, setNavUnderline } = props;
   return (
     <header style={headerCSS.headerStyle}>
-      <div style={headerCSS.logoContainer}>
+      <div style={headerCSS.logoContainer} onClick={() => navigate("/")}>
         <img src={logo} alt="Re-Active Logo" style={headerCSS.logoStyle} />
         <h1>ReActive Workout Planner</h1>
       </div>
@@ -53,14 +55,6 @@ function Header(props) {
           style={headerCSS.linkStyle}
         >
           History
-        </NavLink>
-        <NavLink
-          className="nav"
-          isactive={navUnderline === "contact" ? "contact" : ""}
-          to="/contact"
-          style={headerCSS.linkStyle}
-        >
-          Contact
         </NavLink>
       </nav>
     </header>

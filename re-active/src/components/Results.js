@@ -66,9 +66,6 @@ function Results(props) {
     navigate("/exercise-form");
   }
 
-  // if (pageState === false) {
-  //   return <main>Loading Results BOY</main>;
-  // } else {
   return (
     <main style={resultsCSS.main}>
       {exerciseData.map((data, index) => {

@@ -50,7 +50,15 @@ function App() {
               />
             }
           />
-          <Route path="/exercise-search" element={<ExerciseSearch />} />
+          <Route
+            path="/exercise-search"
+            element={
+              <ExerciseSearch
+                exerciseData={exerciseData}
+                setExerciseData={setExerciseData}
+              />
+            }
+          />
           <Route
             path="/results"
             element={

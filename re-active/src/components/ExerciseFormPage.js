@@ -79,10 +79,12 @@ function ExerciseFormPage(props) {
     );
     const titleObj = {
       muscle: exerciseData.muscle,
+      img: exerciseData.gif,
       equipment: exerciseData.equipment,
       difficulty: exerciseData.difficulty,
+      instructions: exerciseData.instructions,
       type: exerciseData.type,
-      excercise: exerciseData.name,
+      exercise: exerciseData.name,
       load: selectedLoad,
       repRange: selectedRepRange,
       noOfSets: selectedNoOfSets,
@@ -103,6 +105,7 @@ function ExerciseFormPage(props) {
     }
     exercises.push({ ...exercise });
     localStorage.setItem("exercises", JSON.stringify(exercises));
+    alert("Workout saved to History!");
   };
 
   console.log(exerciseData);
